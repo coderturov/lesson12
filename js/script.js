@@ -159,7 +159,7 @@ descBtn.forEach(function(item) {
                             request.open('POST', 'server.php');
                             request.setRequestHeader('Content-Type', 'application/x-www-urlencoded');
 
-                        request.readystatechange = function() {
+                        request.addEventListener('readystatechange', function() {
                             if (request.readyState < 4) {
                                 resolve();
                             } else if(request.readyState === 4) {
@@ -170,7 +170,7 @@ descBtn.forEach(function(item) {
                                     reject();
                                 }
                             }
-                        };
+                        });
                         request.send(formData);
                     }); 
 
@@ -189,11 +189,7 @@ descBtn.forEach(function(item) {
                 .then(()=> statusMessage.innerHTML = message.loading)
                 .then(()=> statusMessage.innerHTML = message.success)
                 .catch(()=> statusMessage.innerHTML = message.failure)
-                .then(clearInput);
-
-
-
-                
+                .then(clearInput);      
         });    
     
     }
@@ -202,177 +198,4 @@ sandForm(form);
        
     });
     
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // function sandForm (form) {
-    //     form.addEventListener('submit', function(event) {
-    //         event.preventDefault();
-    //         form.appendChild(statusMessage);
-    //         let request = new XMLHttpRequest();
-    //         request.open('POST', 'server.php');
-    //         request.setRequestHeader('Content-Type', 'application/x-www-urlencoded');
-    //         let formData = new FormData(form);
-    //         request.send(formData);
-    //         let promise = new Promise(function(resolve, reject){
-    //             if (request.readyState < 4) {
-    //                 resolve();
-    //             } else if(request.readyState === 4 && request.status == 200) {
-    //                 resolve();
-    //             } else {
-    //                 reject();
-    //             }
-    //         });
-    //         return promise;
-    //     });
-    // }
-
-    // function clearInput() {
-    //     for(let i = 0; i < input.length; i++) {
-    //         input[i].value = '';   
-    //     }
-    //     setTimeout(function() {
-    //         statusMessage.innerHTML = ''; 
-    //     }, 5000);  
-    // }
-    // sandForm()
-    //         .then(()=> statusMessage.innerHTML = message.success)
-    //         .catch(()=> statusMessage.innerHTML = message.failure)
-    //         .then(clearInput)
     
