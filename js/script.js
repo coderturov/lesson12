@@ -125,7 +125,7 @@ descBtn.forEach(function(item) {
         failure: 'Что то пошло не так...'
     };
 
-    let form = document.querySelector('.main-form'),
+        let form = document.querySelector('.main-form'),
         input = form.getElementsByTagName('input'),
         inputs = document.querySelectorAll('input'),
         statusMessage = document.createElement('div');
@@ -171,14 +171,14 @@ descBtn.forEach(function(item) {
                                 }
                             }
                         });
-                        request.send(formData);
+                        request.send(data);
                     }); 
 
                 } //End postData
                 
                 function clearInput() {
-                    for(let i = 0; i < input.length; i++) {
-                        input[i].value = '';   
+                    for(let i = 0; i < inputs.length; i++) {
+                        inputs[i].value = '';   
                     }
                     setTimeout(function() {
                         statusMessage.innerHTML = ''; 
@@ -194,6 +194,8 @@ descBtn.forEach(function(item) {
     
     }
 sandForm(form);
+
+sandForm(downForm);
         
        
     });
