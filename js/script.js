@@ -128,7 +128,8 @@ descBtn.forEach(function(item) {
         let form = document.querySelector('.main-form'),
         input = form.getElementsByTagName('input'),
         inputs = document.querySelectorAll('input'),
-        statusMessage = document.createElement('div');
+        statusMessage = document.createElement('div'),
+        downForm = document.querySelector('#form');
        
 
         statusMessage.classList.add('status');
